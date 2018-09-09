@@ -1,26 +1,44 @@
+const POINT_SIZE = 5
+
 async function ready(){
   const canvas = document.querySelector("#cnv")
   const ctx = canvas.getContext("2d")
 
-  //fetch the points form /points
-  const points = await getPoints()
+  const renderFunc = makeRenderFunc(ctx)
 
-  const pointSize = 5
+  renderFunc(true)
 
-  //render points to canvas
-  for (const point of points){
-    ctx.fillStyle = point.colour
-    ctx.fillRect(point.x, point.y, pointSize, pointSize)
-    ctx.fillStyle = "white"
-  }
-
-  
-
+  const looper = setInterval(renderFunc, 3000)
 }
 
-async function getPoints(){
-  const data = await fetch("./points")
-  const points = await data.json()
-  console.log(points)
-  return points
+function makeRenderFunc(ctx){
+  return async function(force = false){
+    //fetch the points form /points
+    const {newData, points} = await getPoints(force)
+    console.log(points)
+
+    if (!newData && !force) return
+
+    //render data to canvas
+    for (const point of points){
+      ctx.fillStyle = point.colour
+      ctx.fillRect(point.x, point.y, POINT_SIZE, POINT_SIZE)
+      ctx.fillStyle = "white"
+    }
+  }
+}
+
+async function getPoints(force = false){
+  const newDataResponse = await fetch("./newdata")
+  const newDataData = await newDataResponse.json()
+  const newData = newDataData.value
+  console.log(newData)
+  let data = []
+  if (newData || force){
+    const response = await fetch("./points")
+    const jsonData = await response.json()
+    data = jsonData.points
+  }
+
+  return {newData, points:data}
 }

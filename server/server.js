@@ -11,6 +11,8 @@ let points = [
   {x: 200, y: 200, colour: "#0000FF"}
 ]
 
+let newData = true
+
 app.post("/update", (res, req) => {
   // get colour from request
 
@@ -23,7 +25,14 @@ app.post("/update", (res, req) => {
 
 app.get("/points", (req, res) => {
   console.log("got request")
-  res.send(JSON.stringify(points))
+  res.send(JSON.stringify({newData, points}))
+  newData = false
+  //res.send(JSON.stringify({newData:false}))
+})
+
+app.get("/newdata", (req, res) => {
+  console.log("data queried")
+  res.send(JSON.stringify({value:newData}))
 })
 
 app.listen(3000, () => console.log('Example app listening on port 3000!'))
