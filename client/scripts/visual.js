@@ -21,8 +21,9 @@ function makeRenderFunc(ctx){
 
     //render data to canvas
     for (const point of points){
+      console.log(`drawing point at ${JSON.stringify(point)}`)
       ctx.fillStyle = point.colour
-      ctx.fillRect(point.x, point.y, POINT_SIZE, POINT_SIZE)
+      ctx.fillRect(point.point.x, point.point.y, POINT_SIZE, POINT_SIZE)
       ctx.fillStyle = "white"
     }
   }
