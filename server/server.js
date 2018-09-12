@@ -14,6 +14,11 @@ let points = [
   {point: {x: 200, y: 200}, colour: "#0000FF"}
 ]
 
+let colourData = {
+  count: 0,
+  colours: {}
+}
+
 let newData = true
 
 //request handlers
@@ -29,6 +34,9 @@ app.post("/update", (req, res) => {
 
   //add point with colour to points
   points.push({point, colour})
+  colourData.count++
+  if(!(colour in colourData.colours)) colourData.colours[colour] = 1
+  else colourData.colours[colour]++
   newData = true //flag a change as having been made
 
   //dummy data, not used but closes connection
@@ -37,8 +45,9 @@ app.post("/update", (req, res) => {
 
 // handles get requests to points
 app.get("/points", (req, res) => {
+  console.log(JSON.stringify(colourData))
   // send points to the client as well as a flag if there is new data
-  res.send(JSON.stringify({newData, points}))
+  res.send(JSON.stringify({newData, points, colourData}))
 
   // flag that the most recent data has been sent to the client
   newData = false
