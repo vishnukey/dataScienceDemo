@@ -8,16 +8,7 @@ app.use(express.static('client')) //statically serves files in directory client/
 
 
 //globals
-let points = [
-  {point: {x: 100, y:200}, colour: "#FF00FF"},
-  {point: {x: 133, y: 331}, colour: "#00FF00"},
-  {point: {x: 200, y: 200}, colour: "#0000FF"}
-]
-
-let colourData = {
-  count: 0,
-  colours: {}
-}
+let colourData = {} //maps colour codes to # of occurences
 
 let newData = true
 
@@ -29,14 +20,14 @@ app.post("/update", (req, res) => {
   const body = req.body
   const colour = body.colour
 
-  //generate random point between (0, 0) and (400, 400)
-  const point = randomPoint(max = 400)
+  //increade number of request counter
+  //colourData.count++
 
-  //add point with colour to points
-  points.push({point, colour})
-  colourData.count++
-  if(!(colour in colourData.colours)) colourData.colours[colour] = 1
-  else colourData.colours[colour]++
+  //if the colour has never been chosen before, add it and set it's number of occurences to 1
+  //otherwise, increment its number of occurences
+  if(!(colour in colourData)) colourData[colour] = 1
+  else colourData[colour]++
+
   newData = true //flag a change as having been made
 
   //dummy data, not used but closes connection
@@ -47,7 +38,7 @@ app.post("/update", (req, res) => {
 app.get("/points", (req, res) => {
   console.log(JSON.stringify(colourData))
   // send points to the client as well as a flag if there is new data
-  res.send(JSON.stringify({newData, points, colourData}))
+  res.send(JSON.stringify({newData, colourData}))
 
   // flag that the most recent data has been sent to the client
   newData = false
@@ -60,49 +51,3 @@ app.get("/newdata", (req, res) => {
 
 // start the server on port 3000
 app.listen(3000, () => console.log('Example app listening on port 3000!'))
-
-//helper functions
-
-/*
- * generates a random integer between lb and ub
- *
- * @param lb the lower bound
- * @param ub the upper bound
- * @return a random integer
- */
-function randomInt(lb, ub){
-        return Math.floor((Math.random() * (ub - lb)) + lb)
-}
-
-/*
- * generates a random point bounded in the square defined by (min, min) and (max, max)
- *
- * @param min the x, y of the top left corner of the bounding square
- * @param max the x, y of the bottom right corner of the bounding square
- * @return the random point
- */
-function randomPoint(min = 0, max = 0){
-        const point = new Point(
-                randomInt(min, max),
-                randomInt(min, max)
-        )
-
-        return point
-}
-
-
-// Constructor functions
-// used with 'new' operator, like class definitions
-
-/*
- * a constructor function to produce Point objects with an x and y
- * not meant to be called without 'new' operator
- *
- * @param x the x coordinate
- * @param y the y coordinate
- * @return undefined
- */
-function Point(x, y){
-        this.x = x
-        this.y = y
-}
