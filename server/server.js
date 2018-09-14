@@ -11,6 +11,7 @@ app.use(express.static('client')) //statically serves files in directory client/
 let colourData = {} //maps colour codes to # of occurences
 
 let newData = true
+let lastColour = ''
 
 //request handlers
 
@@ -29,6 +30,7 @@ app.post("/update", (req, res) => {
   else colourData[colour]++
 
   newData = true //flag a change as having been made
+  lastColour = colour
 
   //dummy data, not used but closes connection
   res.send(JSON.stringify({value:"recevied"}))
@@ -38,7 +40,7 @@ app.post("/update", (req, res) => {
 app.get("/points", (req, res) => {
   console.log(JSON.stringify(colourData))
   // send points to the client as well as a flag if there is new data
-  res.send(JSON.stringify({newData, colourData}))
+  res.send(JSON.stringify({colourData, lastColour}))
 
   // flag that the most recent data has been sent to the client
   newData = false

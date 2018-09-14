@@ -1,5 +1,7 @@
 const POINT_SIZE = 5
 
+const clrs = new ColourQueue()
+
 /*
  * this function is called when the web page is done loading
  * it sets up the canvas, performs an initial draw and then
@@ -29,9 +31,9 @@ function makeRenderFunc(ctx){
    *
    * @param force forces the drawing of data even if there is no new Data
    */
-  return async function(force = false){
+  return async function(force=false){
     //fetch the points form /points
-    const {newData, points, colours} = await getPoints(force)
+    const {newData, colours} = await getPoints(force)
 
     // quit if there is no new data and rendering isn't forced
     if (!newData && !force) return
@@ -51,6 +53,8 @@ function makeRenderFunc(ctx){
 
     //render the buffer to the canvas
     ctx.putImageData(imageData, 0, 0)
+
+    clrs.render(document.querySelector("#recent-colours"))
   }
 }
 
@@ -71,12 +75,11 @@ async function getPoints(force = false){
   //If there is new data, or if the flag is true, the get the points data from the server
   if (newData || force){
     const response = await fetch("./points") //fetch /points endpoint
-    const jsonData = await response.json()
+    const {colourData, lastColour} = await response.json()
 
-    console.log(jsonData.colourData)
-    console.log(Object.keys(jsonData.colourData))
+    clrs.enqueue(lastColour)
 
-    if (!(Object.keys(jsonData.colourData).length === 0)){
+    if (!(Object.keys(colourData).length === 0)){
       /*
        * Take the object that maps colour codes to number of occurences and then turn it into
        * and array of objects that contain colour and # of occurences and then
@@ -84,8 +87,9 @@ async function getPoints(force = false){
        * make each object in the array occur as many times as its # of occurences field
        * and finally convert to just and array of rgb objects
        */
-      colours = Object.keys(jsonData.colourData)
-        .map(key => ({colour:key, count:jsonData.colourData[key]}))
+      colours = Object.keys(colourData)
+        .map(key => ({colour:key, count:colourData[key]}))
+        //.map(({colour, count}) => {clrs.enqueue(colour); return {colour, count}})
         .map(({colour, count}) => ({colour:colourCodeToConstrainedHue(colour), count}))
         .flatMap(c => Array(c.count).fill(c))
         .map(c => c.colour)
@@ -93,8 +97,6 @@ async function getPoints(force = false){
         colours = [{r:255, g:255, b:255, a:255}]
       }
   }
-
-  console.log(colours)
 
   return {newData, colours}
 }
