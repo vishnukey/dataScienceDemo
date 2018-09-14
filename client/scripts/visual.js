@@ -86,7 +86,7 @@ async function getPoints(force = false){
        */
       colours = Object.keys(jsonData.colourData)
         .map(key => ({colour:key, count:jsonData.colourData[key]}))
-        .map(({colour, count}) => ({colour:colourCodeToContrainedHue(colour), count}))
+        .map(({colour, count}) => ({colour:colourCodeToConstrainedHue(colour), count}))
         .flatMap(c => Array(c.count).fill(c))
         .map(c => c.colour)
       }else{

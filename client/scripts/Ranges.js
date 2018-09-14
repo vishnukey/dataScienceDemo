@@ -9,7 +9,7 @@ function makeBoxes(start, step){
     const box = new Box(hue => {
 
       return (hue >= lowerBound) || (hue < upperBound)
-    }, RBGtoHex(hsvToRgb(middle, 1, 1))
+    }, RBGtoHex(hsvToRgb(middle, 1, 1)))
 
     boxes.push(box)
   }

@@ -3,7 +3,7 @@ function Box(matcher, rep){
   this.rep = rep
   this.match = (x) => {
     accepting = matcher(x)
-    if (accepting) count++
+    if (accepting) this.count++
     return accepting
   }
 }

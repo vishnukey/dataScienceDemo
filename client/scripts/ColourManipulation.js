@@ -15,7 +15,7 @@ function hexToRGBA(hex){
   }
 }
 
-RBGtoHex([r, g, b]){
+function RBGtoHex([r, g, b]){
   return `#${r.toString(16)}${g.toString(16)}${b.toString(16)}`
 }
 
@@ -23,12 +23,12 @@ function constrainToHueVariance(rgb){
   const [h, s, v] = rgbToHsv(rgb.r, rgb.g, rgb.b)
 
   boxes.forEach(box => box.match(h))
-  
+
   const [r, g, b] = hsvToRgb(h, 1, 1)
   return {r, g, b, a:rgb.a}
 }
 
-function colourCodeToContrainedHue(colourCode){
+function colourCodeToConstrainedHue(colourCode){
     const rgb = hexToRGBA(colourCode)
     return constrainToHueVariance(rgb)
 }

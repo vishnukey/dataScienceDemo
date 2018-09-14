@@ -1,13 +1,16 @@
-function Queue(){
-  this.internal = []
+function ColourQueue(){
+  this.colours = []
 
-  this.enqueue = x => this.internal.unshift(x)
+  this.enqueue = x => this.colours.unshift(x)
 
-  this.dequeue = x => this.internal.pop()
+  this.dequeue = x => this.colours.pop()
 
-  this.length = () => this.internal.length
+  this.length = () => this.colours.length
 
   this.render = parent => {
-    
+    for (const colour of this.colours){
+      item = document.createElement("li")
+      
+    }
   }
 }
