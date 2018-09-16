@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -10,7 +11,8 @@
 </head>
 <style>
 body{
-  background-color: palegoldenrod;
+  margin:50px;
+  background-color: blanchedalmond
 }
  #title{
   color:orangered;
@@ -22,15 +24,35 @@ body{
    font-family:'proxima-nova';
    font-size: 40px;
  }
+ #text{
+   color:black;
+   font-family:'proxima-nova';
+   font-size: 20px;
+ }
+ #Descript{
+   color:orangered;
+   font-family:'proxima-nova';
+   font-size: 20px;
+ }
 
 </style>
-<center><div> <img src="images/data.png" alt=""></div>
-  <h1 id="title">Undergraduate Minor in Data Science</h1></center>
-  <h1>Data Science Pipeline: <br>Collection &rarr; Cleaning &rarr; Analyzing &rarr; Presenting </h1>
-  <h1 id="collection"> Collection: Select a colour!</h1>
+<center> <img src="images/data_sci.png" alt="">
+  <h1 id="title">Undergraduate Minor in Data Science</h1>
+  <h1 id="Descript">A competitive-entry minor program that will add an analytical edge to any bachelors degree. <br>Build the skills necessary to analyze, design, code, solve problems, and think critically with data.</h1></center>
+  <h1>Data Science Pipeline:</h1>
+  <div><img src="images/pipeline.png" alt=""></div>
+  <h1 id="text">
+    Data Collection – Applying automated, manual, and hybrid approaches to elicit, sense, simulate, or otherwise capture data.
+    <br> Data Cleaning – Transforming raw, noisy, incomplete, or otherwise dirty data into forms that can support further analysis.
+    <br>Exploratory Analysis – Using visualization, statistics, and other techniques to examine new data and identify possible opportunities for analysis.
+    <br>Statistical & Computational Analysis – Applying computational, mathematical, or statistical techniques and models to make sense of and extract knowledge from data.
+    <br>Presentation – Using visual, oral, and written approaches to communicate analysis processes, observations, and results. </h1>
+  
+  <h1 id="collection"> Data Collection: Record the first five colours you see</h1>
   <input onChange="update()" id="colour" type="color">
-  <h1 id="collection">Cleaning: </h1>
-  <h1 id="collection">Analyzing</h1>
-  <h1 id="collection">Presenting</h1>
+  <h1 id="collection">Data Cleaning: Sort colours in intervals.</h1>
+  <h1 id="collection">Exploratory Analysis: Frequency of colour intervals? </h1>
+  <h1 id="collection">Statistical & Computational Analysis: Frequency of colour intervals? </h1>
+  <h1 id="collection">Presenting: Visualize colour intervals and create an approporiate title.</h1>
 </body>
 </html>
