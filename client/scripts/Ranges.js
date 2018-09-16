@@ -15,7 +15,7 @@ function makeBoxes(start, step){
     const repColour = RBGtoHex(hsvToRgb(middle, 1, 1))
 
     const item = document.createElement("li")
-    const colourBox = document.createElement("span")
+    const colourBox = document.createElement("div")
     const text = document.createTextNode("0%")
 
     //item.setAttribute("style", `background-color:${repcolour};`)
@@ -33,7 +33,7 @@ function makeBoxes(start, step){
 
     const box = new Box(
       hue => {
-        const matches = (hue >= lowerBound) && (hue < upperBound)
+        const matches = (lowerBound <= hue) && (hue < upperBound)
         console.log(`${lowerBound} < ${hue} < ${upperBound} is ${matches}`)
         return matches
       },
