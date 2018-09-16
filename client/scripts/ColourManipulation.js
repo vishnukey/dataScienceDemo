@@ -1,4 +1,3 @@
-const boxes = makeBoxes(0, 10)
 
 /*
  * converts a hex string of form #RRGGBB to a object of RGBA values, where A is all maxed out
@@ -15,8 +14,26 @@ function hexToRGBA(hex){
   }
 }
 
+function padleft(str, size, padStr){
+  const pad = Array(size).fill(padStr).join("")
+  const ans = pad.substring(0, pad.length - str.length) + str
+  return ans
+}
+
 function RBGtoHex([r, g, b]){
-  return `#${r.toString(16)}${g.toString(16)}${b.toString(16)}`
+  const rstr = padleft(
+    Math.round(r).toString(16),
+    2,
+    "0")
+  const gstr = padleft(
+    Math.round(g).toString(16),
+    2,
+    "0")
+  const bstr = padleft(
+    Math.round(b).toString(16),
+    2,
+    "0")
+  return `#${rstr}${gstr}${bstr}`
 }
 
 function constrainToHueVariance(rgb){

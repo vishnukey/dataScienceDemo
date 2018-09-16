@@ -1,4 +1,4 @@
-function Box(matcher, rep){
+function Box(matcher, rep, textNode){
   this.count = 0
   this.rep = rep
   this.match = (x) => {
@@ -6,4 +6,5 @@ function Box(matcher, rep){
     if (accepting) this.count++
     return accepting
   }
+  this.textNode = textNode
 }

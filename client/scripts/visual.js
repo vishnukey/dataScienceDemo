@@ -1,6 +1,7 @@
 const POINT_SIZE = 5
 
 const clrs = new ColourQueue()
+let boxes
 
 /*
  * this function is called when the web page is done loading
@@ -8,6 +9,9 @@ const clrs = new ColourQueue()
  * sets up a the canvas to be re-rendered every 3 seconds
  */
 async function ready(){
+  boxes = makeBoxes(0, 10)
+
+
   const canvas = document.querySelector("#cnv") // get the canvas
   const ctx = canvas.getContext("2d") // get the rendering contex
 
@@ -79,6 +83,8 @@ async function getPoints(force = false){
 
     clrs.enqueue(lastColour)
 
+    while(clrs.length() > 5) clrs.dequeue()
+
     if (!(Object.keys(colourData).length === 0)){
       /*
        * Take the object that maps colour codes to number of occurences and then turn it into
@@ -96,6 +102,11 @@ async function getPoints(force = false){
       }else{
         colours = [{r:255, g:255, b:255, a:255}]
       }
+
+      console.log(boxes)
+      const total = boxes.reduce((acc, box) => acc + box.count, 0)
+      console.log(total)
+      boxes.forEach(box => box.textNode.nodeValue = `${box.count / total}%`)
   }
 
   return {newData, colours}
