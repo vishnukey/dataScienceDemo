@@ -2,6 +2,8 @@ const POINT_SIZE = 5
 
 const clrs = new ColourQueue()
 let boxes
+let WIDTH
+let HEIGHT
 
 /*
  * this function is called when the web page is done loading
@@ -12,7 +14,9 @@ async function ready(){
   boxes = makeBoxes(0, 10)
 
 
-  const canvas = document.querySelector("#cnv") // get the canvas
+  const canvas = document.querySelector("#cnv") // get the canvas\
+  WIDTH = canvas.width
+  HEIGHT = canvas.height
   const ctx = canvas.getContext("2d") // get the rendering contex
 
   const renderFunc = makeRenderFunc(ctx)
@@ -43,7 +47,7 @@ function makeRenderFunc(ctx){
     if (!newData && !force) return
 
     //create separate buffer to draw to, to avoid extra repaints
-    const imageData = ctx.createImageData(400, 400)
+    const imageData = ctx.createImageData(WIDTH, HEIGHT)
 
     //set each pixel to a random colour
     for (let i = 0; i < imageData.data.length; i += 4){
