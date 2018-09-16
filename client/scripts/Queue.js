@@ -19,6 +19,8 @@ function ColourQueue(){
       item.setAttribute("style", `background-color:${colour};`)
       item.setAttribute("class", "recent-colour")
 
+      if (colour === "") continue
+
       parent.appendChild(item)
     }
   }

@@ -106,7 +106,7 @@ async function getPoints(force = false){
       console.log(boxes)
       const total = boxes.reduce((acc, box) => acc + box.count, 0)
       console.log(total)
-      boxes.forEach(box => box.textNode.nodeValue = `${box.count / total}%`)
+      boxes.forEach(box => box.textNode.nodeValue = `${total === 0 ? 0 : box.count / total}%`)
   }
 
   return {newData, colours}
