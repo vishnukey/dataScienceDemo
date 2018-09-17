@@ -14,7 +14,7 @@ function makeBoxes(start, step){
 
     const repColour = RBGtoHex(hsvToRgb(middle, 1, 1))
 
-    const item = document.createElement("li")
+    const item = document.createElement("div")
     const colourBox = document.createElement("div")
     const text = document.createTextNode("0%")
 

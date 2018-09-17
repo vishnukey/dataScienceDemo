@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  
+
   <title>Wow awesome</title>
 
   <link rel="stylesheet" href="style/visual.css">
@@ -18,17 +18,21 @@
   <script src="scripts/visual.js"></script>
 </head>
 <body onload="ready()">
-  <div class="left">
-    <canvas width="400" height="400" id="cnv"></canvas>
-  </div>
-  <div class="right">
-    <div class="top">
+  <center>
+    <h1 class="heading">Visualiztions</h1>
+  </center>
+  <div id="container">
+    <div class="left">
+      <canvas id="cnv"></canvas>
+    </div>
+    <div class="top-right">
       <div id="recent-colours" class="colourlist"></div>
     </div>
-    <div class="bottom">
-      <ul id="colour-percents"></ul>
+    <div class="bottom-right">
+      <h2 class="heading">Exploratory Analysis: How much does each colour appear</h2>
+      <p>Bucketize the colours into a set number of groups, and display how much each group is represented as a share of the total colours chosen</p>
+      <div id="colour-percents"></div>
     </div>
   </div>
-
 </body>
 </html>
