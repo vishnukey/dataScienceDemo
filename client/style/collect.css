@@ -1,0 +1,35 @@
+:root{
+  --main-font: 'proxima-nova';
+
+  --large-font-size: 60px;
+  --medium-font-size: 40px;
+  --small-font-size: 20px;
+}
+
+body{
+  margin: 50px;
+  background-color: blanchedalmond
+}
+
+.heading{
+  color:orangered;
+  font-family: var(--main-font);
+}
+
+h1.heading{
+  font-size: var(--large-font-size);
+}
+
+h2.heading{
+  font-size: var(--medium-font-size);
+}
+
+h3.heading{
+  font-size: var(--small-font-size);
+}
+
+p{
+  color:black;
+  font-family: var(--main-font);
+  font-size: var(--small-font-size);
+}

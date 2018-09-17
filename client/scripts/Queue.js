@@ -14,7 +14,7 @@ function ColourQueue(){
     }
 
     for (const colour of this.colours){
-      const item = document.createElement("li")
+      const item = document.createElement("div")
 
       item.setAttribute("style", `background-color:${colour};`)
       item.setAttribute("class", "recent-colour")
