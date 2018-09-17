@@ -11,7 +11,7 @@ let HEIGHT
  * sets up a the canvas to be re-rendered every 3 seconds
  */
 async function ready(){
-  boxes = makeBoxes(0, 10)
+  boxes = makeBoxes(10, 10)
 
 
   const canvas = document.querySelector("#cnv") // get the canvas\
@@ -90,6 +90,8 @@ async function getPoints(force = false){
     while(clrs.length() > 5) clrs.dequeue()
 
     if (!(Object.keys(colourData).length === 0)){
+      boxes.forEach(box => box.count = 0)
+
       /*
        * Take the object that maps colour codes to number of occurences and then turn it into
        * and array of objects that contain colour and # of occurences and then
@@ -100,17 +102,15 @@ async function getPoints(force = false){
       colours = Object.keys(colourData)
         .map(key => ({colour:key, count:colourData[key]}))
         //.map(({colour, count}) => {clrs.enqueue(colour); return {colour, count}})
-        .map(({colour, count}) => ({colour:colourCodeToConstrainedHue(colour), count}))
         .flatMap(c => Array(c.count).fill(c))
+        .map(({colour, count}) => ({colour:colourCodeToConstrainedHue(colour), count}))
         .map(c => c.colour)
       }else{
         colours = [{r:255, g:255, b:255, a:255}]
       }
 
-      console.log(boxes)
       const total = boxes.reduce((acc, box) => acc + box.count, 0)
-      console.log(total)
-      boxes.forEach(box => box.textNode.nodeValue = `${total === 0 ? 0 : box.count / total}%`)
+      boxes.forEach(box => box.textNode.nodeValue = `${(total === 0 ? 0 : box.count / total).toFixed(2)}%`)
   }
 
   return {newData, colours}
