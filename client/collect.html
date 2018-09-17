@@ -26,7 +26,9 @@
   </p>
   <h2 class="heading">Data Collection: Observe & Record Colours.</h2>
   <p> Select the colour box below, pick a colour, and then close colour window. </p>
-  <input onChange="update()" id="colour" type="color">
+  <input onchange="update()" id="colour" type="color">
+  <input onclick="reset()" type="button" id="rest" value="reset">
+  <input onclick="undo()" type="button" id="undo" value="undo">
   <h2 class="heading">Data Cleaning: Constrain & Sort Data.</h2>
   <p>Constrain saturation and variance.</p>
   <h2 class="heading">Exploratory Analysis: Visualize for Analysis.  </h2>

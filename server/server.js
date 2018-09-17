@@ -51,5 +51,17 @@ app.get("/newdata", (req, res) => {
   res.send(JSON.stringify({value:newData}))
 })
 
+app.get("/reset", (req, res) => {
+  colourData = {}
+  newData = true
+  res.send(JSON.stringify({value:"received"}))
+})
+
+app.get("/undo", (req, res) => {
+  colourData[lastColour]--
+  newData = true
+  res.send(JSON.stringify({value:"received"}))
+})
+
 // start the server on port 3000
 app.listen(3000, () => console.log('Example app listening on port 3000!'))

@@ -9,6 +9,16 @@ function update(){
   const res = postData("./update", {colour}) // send the colour to the server
 }
 
+function reset(){
+  fetch("./reset")
+  console.log("reset")
+}
+
+function undo(){
+  fetch("./undo")
+ console.log("undo")
+}
+
 /*
  * POST some data to a url encoded as jsonData
  *
