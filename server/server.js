@@ -59,6 +59,7 @@ app.get("/reset", (req, res) => {
 
 app.get("/undo", (req, res) => {
   colourData[lastColour]--
+  lastColour = ""
   newData = true
   res.send(JSON.stringify({value:"received"}))
 })
