@@ -12,11 +12,15 @@ let HEIGHT
  */
 async function ready(){
   boxes = makeBoxes(10, 10)
+  WIDTH = window.innerWidth
+  HEIGHT = window.innerHeight
 
+  const container = document.querySelector("#container")
+  container.setAttribute("style", `width: ${WIDTH}px; height: ${HEIGHT}px;`)
 
   const canvas = document.querySelector("#cnv") // get the canvas\
-  WIDTH = canvas.width
-  HEIGHT = canvas.height
+  canvas.width = WIDTH
+  canvas.height = HEIGHT
   const ctx = canvas.getContext("2d") // get the rendering contex
 
   const renderFunc = makeRenderFunc(ctx)
