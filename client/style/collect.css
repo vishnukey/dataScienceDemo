@@ -9,11 +9,11 @@
 body{
   margin-left: 15%;
   margin-right: 15%;
-  background-color: blanchedalmond
+  background-color: whitesmoke
 }
 
 .heading{
-  color:orangered;
+  color:black;
   font-family: var(--main-font);
 }
 
