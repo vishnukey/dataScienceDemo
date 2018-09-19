@@ -20,25 +20,48 @@
   <h2 class="heading">Data Science Pipeline:</h1>
   <img src="images/pipeline.png" alt="">
 
-  <p>
-    1. Data Collection – Applying automated, manual, and hybrid approaches to elicit, sense, simulate, or otherwise capture data.
-    <br>2. Data Cleaning – Transforming raw, noisy, incomplete, or otherwise dirty data into forms that can support further analysis.
-    <br>3. Exploratory Analysis – Using visualization, statistics, and other techniques to examine new data and identify possible opportunities for analysis.
-    <br>4. Statistical & Computational Analysis – Applying computational, mathematical, or statistical techniques and models to make sense of and extract knowledge from data.
-    <br>5. Presentation – Using visual, oral, and written approaches to communicate analysis processes, observations, and results.
-  </p>
+  <ol>
+    <li><strong>Data Collection</strong> – Applying automated, manual, and hybrid approaches to elicit, sense, simulate, or otherwise capture data.</li>
+    <li><strong>Data Cleaning</strong> – Transforming raw, noisy, incomplete, or otherwise dirty data into forms that can support further analysis.</li>
+    <li><strong>Exploratory Analysis</strong> – Using visualization, statistics, and other techniques to examine new data and identify possible opportunities for analysis.</li>
+    <li><strong>Statistical & Computational Analysis</strong> – Applying computational, mathematical, or statistical techniques and models to make sense of and extract knowledge from data.</li>
+    <li><strong>Presentation</strong> – Using visual, oral, and written approaches to communicate analysis processes, observations, and results.</li>
+  </ol>
   <h2 class="heading">1.Data Collection: Observe & Record Colours.</h2>
-  <p> Select the colour box below, pick a colour, and then close colour window. </p>
+  <p><strong>What's your favourite colour?</strong></p>
+  <p>Please Select the colour box below, pick a colour, and then close colour window. </p>
   <input onchange="update()" id="colour" type="color">
   <input onclick="reset()" type="button" id="rest" value="reset">
   <input onclick="undo()" type="button" id="undo" value="undo">
   <h2 class="heading">2. Data Cleaning: Constrain & Sort Data.</h2>
-  <p>Constrain saturation and variance.</p>
+  <p>
+    After data is received, convert it from the standard RGB into HSV, an encoding
+    much better suited to our needs. Once done, we can constrain the <em>Saturation</em> and
+    <em>Value</em> fields, leaving only the <em>Hue</em> to vary. Finally, the new
+    colour needs to be converted back to RGB to be displayed in browser.
+  </p>
   <h2 class="heading">3. Exploratory Analysis: Visualize for Analysis.  </h2>
-  <p>Collect colour into boxes, compute percentages, display percentage lists, identify trends.<br> Bucketize the colours into a set number of groups, and display how much each group is represented as a share of the total colours chosen</p>
+  <p>
+    While the data is still in HSV, count up how many of each hue exists. Since
+    hue varies through a range of 360, there are that many possible hues that
+    could exist. Break the 360 value colour wheel into 18 40 value sections. group
+    each colour into it's respective "bucket" and compute how much each bucket is
+    represented as a share of the total colours selected.
+  </p>
   <h2 class="heading">4. Statistical & Computational Analysis: Compute Average Using Monte Carlo. </h2>
-  <p>Convert into RGBA colour code and </p>
+  <p>
+    Using a list containing all the selected colours, after having their Saturation
+    and variance constrained, where a colour may be repeated if it occurs multiple times,
+    generate an approximate average colour using monte carlo. This is taken by assigning
+    to each pixel a random colour selected from the list of all colours that have
+    been previously chosen. Given the size of the sample space, greater than 1 million
+    pixels, the approximation of the average will be very close to the actual average
+    colour.
+  </p>
   <h2 class="heading">5. Presenting: Visualize Colour Selections.</h2>
-  <p>Provide appropriate title for visualization to communicate desired message.</p>
+  <p>
+    <!-- Provide appropriate title for visualization to communicate desired message. -->
+    
+  </p>
 </body>
 </html>

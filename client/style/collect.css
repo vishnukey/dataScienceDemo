@@ -4,16 +4,22 @@
   --large-font-size: 60px;
   --medium-font-size: 40px;
   --small-font-size: 20px;
+
+  --bg-color: whitesmoke;
+  --heading-color: black;
+
+  --bg-color: blanchedalmond;
+  --heading-color: #ee3400;
 }
 
 body{
   margin-left: 15%;
   margin-right: 15%;
-  background-color: whitesmoke
+  background-color: var(--bg-color);
 }
 
 .heading{
-  color:black;
+  color:var(--heading-color);
   font-family: var(--main-font);
 }
 
