@@ -31,10 +31,10 @@
       <span class="info-card__icon">
         <slot name="icon"></slot>
       </span>
-      <h1 class="info-card__header">
+      <h1 class="info-card__header info-card__text">
         <slot name="header"></slot>
       </h1>
-      <p class="info-card__content">
+      <p class="info-card__content info-card__text">
         <slot name="content"></slot>
       </p>
     </div>
@@ -48,18 +48,39 @@
   <input size="60" type="text">
 
   <div id="container">
-    <div class="left area">
+    <div class="left">
+      <div id="visualization" class="area">
       <info-card id="info-card_4">
           <span slot="icon">4</span>
-          <span slot="header">Hey</span>
-          <span slot="content">Some New stuff</span>
+          <span slot="header">
+            Statistical & Computational Analysis: Compute Average Using Monte Carlo.
+          </span>
+          <span slot="content">
+              Using a list containing all the selected colours, after having their Saturation
+              and variance constrained, where a colour may be repeated if it occurs multiple times,
+              generate an approximate average colour using monte carlo. This is taken by assigning
+              to each pixel a random colour selected from the list of all colours that have
+              been previously chosen. Given the size of the sample space, greater than 1 million
+              pixels, the approximation of the average will be very close to the actual average
+              colour.
+          </span>
       </info-card>
       <canvas id="cnv"></canvas>
       <info-card id="info-card_5">
           <span slot="icon">5</span>
-          <span slot="header">Hey</span>
-          <span slot="content">Some New stuff</span>
+          <span slot="header">
+              Presenting: Visualize Colour Selections.
+          </span>
+          <span slot="content">
+              Draw to the screen all the information that has thus been generated. This
+              includes the canvas with a representation of the average colour, the bucket
+              colours and their associated percentages, as well as a list containing the
+              previous 5 colours that have been selected. This helps communicate the data
+              and analysis therein but what is left is a title. That last is up to you to
+              do, to find the the best title for one of the visualizations.
+          </span>
       </info-card>
+      </div>
     </div>
     <div class="top-right area">
       <h2 class="heading">Recent Colors:</h2>
@@ -68,8 +89,14 @@
     <div class="bottom-right area">
       <info-card id="info-card_3">
           <span slot="icon">3</span>
-          <span slot="header">Hey</span>
-          <span slot="content">Some New stuff</span>
+          <span slot="header">Exploratory Analysis: Visualize for Analysis.</span>
+          <span slot="content">    
+              While the data is still in HSV, count up how many of each hue exists. Since
+              hue varies through a range of 360, there are that many possible hues that
+              could exist. Break the 360 value colour wheel into 18 40 value sections. group
+              each colour into it's respective "bucket" and compute how much each bucket is
+              represented as a share of the total colours selected.
+          </span>
       </info-card>
       <h2 class="heading">Colours Chosen (%)</h2>
       <p></p>

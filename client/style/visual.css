@@ -4,6 +4,7 @@
 
 #container{
   display: grid;
+  /* grid-template-columns: 50% 50%; */
   grid-template-columns: 50% 50%;
   grid-template-rows: 50% 50%;
 }
@@ -51,6 +52,10 @@
   position: relative;
 }
 
+#visualization{
+  height: 75%;
+}
+
 #cnv{
   width: 100%;
   height: 100%;
@@ -58,20 +63,21 @@
 
 info-card{
   position: absolute;
+  z-index: 1;
   /* border: solid red 2px; */
 }
 
 #info-card_3{
-  right: 0em;
-  top: -2em;
+  right: 0.7em;
+  top: -12em;
 }
 
 #info-card_4{
   right: -4em;
-  top: -1.3em;
+  top: -12em;
 }
 
 #info-card_5{
-  bottom: -1.5em;
   left: 0.4em;
+  bottom: -8em;
 }

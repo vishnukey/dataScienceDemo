@@ -16,7 +16,7 @@ async function ready(){
   HEIGHT = window.innerHeight
 
   const container = document.querySelector("#container")
-  container.setAttribute("style", `width: ${WIDTH}px; height: ${HEIGHT}px;`)
+  //container.setAttribute("style", `width: ${WIDTH}px; height: ${HEIGHT}px;`)
 
   const canvas = document.querySelector("#cnv") // get the canvas\
   canvas.width = WIDTH

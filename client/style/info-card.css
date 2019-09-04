@@ -1,37 +1,56 @@
 .info-card{
         font-family: 'proxima-nova';
-        background: rgb(9, 201, 153);
+        /* background: rgb(9, 201, 153); */
+        background: #0077FF;
         padding: 1em;
         border-radius: 10px;
         width: 250px;
         /* clip-path: circle(10% at 90% 20%); */
-        clip-path: circle(10%);
-        transition: all .5s ease-in-out;
+        clip-path: circle(5%);
+        transition: 
+                all .6s ease-in-out, 
+                box-shadow .7s ease-in-out;
         cursor: pointer;
         position: relative;
-        z-index: 5;
+        box-shadow: 0em 0em;
 }
 .info-card:hover {
         clip-path: circle(75%);
         background: #00B6FF;
+        box-shadow: 0.5em 0.5em rgba(0,0,0,0.5);
+}
+
+.info-card__text{
+        color:rgba(255,255,255,0);
+        transition: color .6s ease-in-out;
+}
+
+/* .info-card:hover .info-card__text{
+        color:white;
+} */
+.info-card:hover .info-card__header{
+        color: #ee3400
+}
+
+.info-card:hover .info-card__content{
+        color:black;
 }
 
 .info-card__header {
-        color: white;
+        /* color: white; */
         margin: 0;
 }
 
 .info-card__content {
-        color: white;
+        /* color: white; */
         font-size: .8rem;
 }
 .info-card__icon {
         /* float: right; */
         position: absolute;
-        z-index: 7;
         left: 48%;
-        top: 43%;
-        color: white;
+        top: 48%;
+        color: black;
         font-weight: bold;
         transition: color .2s;
         /* position: relative; */
