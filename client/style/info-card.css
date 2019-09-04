@@ -1,11 +1,15 @@
 .info-card{
+        font-family: 'proxima-nova';
         background: rgb(9, 201, 153);
         padding: 1em;
         border-radius: 10px;
         width: 250px;
-        clip-path: circle(10% at 90% 20%);
+        /* clip-path: circle(10% at 90% 20%); */
+        clip-path: circle(10%);
         transition: all .5s ease-in-out;
         cursor: pointer;
+        position: relative;
+        z-index: 5;
 }
 .info-card:hover {
         clip-path: circle(75%);
@@ -22,12 +26,16 @@
         font-size: .8rem;
 }
 .info-card__icon {
-        float: right;
+        /* float: right; */
+        position: absolute;
+        z-index: 7;
+        left: 48%;
+        top: 43%;
         color: white;
         font-weight: bold;
-        transition: color .5s;
-        position: relative;
-        margin-right: 4%;
+        transition: color .2s;
+        /* position: relative; */
+        /* margin-right: 4%; */
 }
 .info-card:hover .info-card__icon{
         color: rgba(255,255,255,0)
