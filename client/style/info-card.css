@@ -17,7 +17,7 @@
 .info-card:hover {
         clip-path: circle(75%);
         background: #00B6FF;
-        box-shadow: 0.5em 0.5em rgba(0,0,0,0.5);
+        box-shadow: -0.5em 0.5em rgba(0,0,0,0.5);
 }
 
 .info-card__text{

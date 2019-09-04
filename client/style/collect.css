@@ -40,3 +40,13 @@ p{
   font-family: var(--main-font);
   font-size: var(--small-font-size);
 }
+
+.collect-container{
+  display: grid;
+  grid-gap: 1.5em;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.section{
+  grid-column: auto;
+}

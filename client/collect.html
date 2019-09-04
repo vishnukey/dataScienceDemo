@@ -10,37 +10,44 @@
 </head>
 <body>
   <center>
-    <img src="images/data_sci.png" alt="">
+    <!-- <img src="images/data_sci.png" alt=""> -->
     <h1 class="heading">Undergraduate Minor in Data Science</h1>
     <hr>
     <h3 class="heading">A competitive-entry minor program that will add an analytical edge to any bachelors degree. <br>Build the skills necessary to analyze, design, code, solve problems, and think critically with data.</h3>
   </center>
-  <h2 class="heading">Math Orientation Activity: <br> </h2>
-  <p> Walk through the data science pipeline and complete each step to recieve your stamp for the data science table. </p>
-  <h2 class="heading">Data Science Pipeline:</h1>
-  <img src="images/pipeline.png" alt="">
+  
+    <h2 class="heading">Math Orientation Activity: <br> </h2>
+    <p> Walk through the data science pipeline and complete each step to recieve your stamp for the data science table. </p>
+    <h2 class="heading">Data Science Pipeline:</h1>
+    <img src="images/pipeline.png" alt="">
 
-  <ol>
-    <li><strong>Data Collection</strong> – Applying automated, manual, and hybrid approaches to elicit, sense, simulate, or otherwise capture data.</li>
-    <li><strong>Data Cleaning</strong> – Transforming raw, noisy, incomplete, or otherwise dirty data into forms that can support further analysis.</li>
-    <li><strong>Exploratory Analysis</strong> – Using visualization, statistics, and other techniques to examine new data and identify possible opportunities for analysis.</li>
-    <li><strong>Statistical & Computational Analysis</strong> – Applying computational, mathematical, or statistical techniques and models to make sense of and extract knowledge from data.</li>
-    <li><strong>Presentation</strong> – Using visual, oral, and written approaches to communicate analysis processes, observations, and results.</li>
-  </ol>
-  <h2 class="heading">1.Data Collection: Observe & Record Colours.</h2>
-  <p><strong>What's your favourite colour?</strong></p>
-  <p> Select the colour box below, pick a colour, and then close colour window. </p>
-  <input onchange="update()" id="colour" type="color">
-  <input onclick="reset()" type="button" id="rest" value="reset">
-  <input onclick="undo()" type="button" id="undo" value="undo">
-  <h2 class="heading">2. Data Cleaning: Constrain & Sort Data.</h2>
-  <p>
-    After data is received, convert it from the standard RGB into HSV, an encoding
-    much better suited to our needs. Once done, we can constrain the <em>Saturation</em> and
-    <em>Value</em> fields, leaving only the <em>Hue</em> to vary. Finally, the new
-    colour needs to be converted back to RGB to be displayed in browser.
-  </p>
-  <h2 class="heading">3. Exploratory Analysis: Visualize for Analysis.  </h2>
+    <ol>
+      <li><strong>Data Collection</strong> – Applying automated, manual, and hybrid approaches to elicit, sense, simulate, or otherwise capture data.</li>
+      <li><strong>Data Cleaning</strong> – Transforming raw, noisy, incomplete, or otherwise dirty data into forms that can support further analysis.</li>
+      <li><strong>Exploratory Analysis</strong> – Using visualization, statistics, and other techniques to examine new data and identify possible opportunities for analysis.</li>
+      <li><strong>Statistical & Computational Analysis</strong> – Applying computational, mathematical, or statistical techniques and models to make sense of and extract knowledge from data.</li>
+      <li><strong>Presentation</strong> – Using visual, oral, and written approaches to communicate analysis processes, observations, and results.</li>
+    </ol>
+    <div class="collect-container">
+      <div class="section">
+        <h2 class="heading">1.Data Collection: Observe & Record Colours.</h2>
+        <p><strong>What's your favourite colour?</strong></p>
+        <p> Select the colour box below, pick a colour, and then close colour window. </p>
+        <input onchange="update()" id="colour" type="color">
+        <input onclick="reset()" type="button" id="rest" value="reset">
+        <input onclick="undo()" type="button" id="undo" value="undo">
+      </div>
+      <div class="section">
+        <h2 class="heading">2. Data Cleaning: Constrain & Sort Data.</h2>
+        <p>
+          After data is received, convert it from the standard RGB into HSV, an encoding
+          much better suited to our needs. Once done, we can constrain the <em>Saturation</em> and
+          <em>Value</em> fields, leaving only the <em>Hue</em> to vary. Finally, the new
+          colour needs to be converted back to RGB to be displayed in browser.
+        </p>
+      </div>
+    </div>
+  <!-- <h2 class="heading">3. Exploratory Analysis: Visualize for Analysis.  </h2>
   <p>
     While the data is still in HSV, count up how many of each hue exists. Since
     hue varies through a range of 360, there are that many possible hues that
@@ -66,6 +73,6 @@
     previous 5 colours that have been selected. This helps communicate the data
     and analysis therein but what is left is a title. That last is up to you to
     do, to find the the best title for one of the visualizations.
-  </p>
+  </p> -->
 </body>
 </html>
