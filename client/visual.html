@@ -24,11 +24,7 @@
     }
     </style>
 
-<script src="scripts/info-card.js" defer></script>
-
-</head>
-<body onload="ready()">
-    
+  <script src="scripts/info-card.js" defer></script>
   <template id="template__info-card">
     <link rel="stylesheet" href="style/info-card.css">
     <div class="info-card">
@@ -44,12 +40,8 @@
     </div>
   </template>
 
-  <info-card>
-    <span slot="icon">i</span>
-    <span slot="header">Hey</span>
-    <span slot="content">Some New stuff</span>
-  </info-card>
-
+</head>
+<body onload="ready()">
   <h1 class="heading">Visualizations</h1>
   <p>Visualization Title:</p>
   <!--  <textarea name="" id="" cols="111" rows="3"></textarea> -->
@@ -57,13 +49,28 @@
 
   <div id="container">
     <div class="left">
+      <info-card>
+          <span slot="icon">4</span>
+          <span slot="header">Hey</span>
+          <span slot="content">Some New stuff</span>
+      </info-card>
       <canvas id="cnv"></canvas>
+      <info-card>
+          <span slot="icon">5</span>
+          <span slot="header">Hey</span>
+          <span slot="content">Some New stuff</span>
+      </info-card>
     </div>
     <div class="top-right">
       <h2 class="heading">Recent Colors:</h2>
       <div id="recent-colours" class="colourlist"></div>
     </div>
     <div class="bottom-right">
+      <info-card>
+          <span slot="icon">3</span>
+          <span slot="header">Hey</span>
+          <span slot="content">Some New stuff</span>
+      </info-card>
       <h2 class="heading">Colours Chosen (%)</h2>
       <p></p>
       <div id="colour-percents"></div>
