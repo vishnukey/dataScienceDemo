@@ -9,7 +9,8 @@
 
   <link rel="stylesheet" href="style/visual.css">
   <link rel="stylesheet" href="style/collect.css">
-
+  <!-- <link rel="stylesheet" href="style/debug.css"> -->
+  
   <script src="scripts/Box.js"></script>
   <script src="scripts/Ranges.js"></script>
   <script src="scripts/Queue.js"></script>
@@ -21,13 +22,36 @@
       margin: 0px;
       padding: 0px;
     }
-  </style>
+    </style>
+
+<script src="scripts/info-card.js" defer></script>
 
 </head>
 <body onload="ready()">
+    
+  <template id="template__info-card">
+    <link rel="stylesheet" href="style/info-card.css">
+    <div class="info-card">
+      <span class="info-card__icon">
+        <slot name="icon"></slot>
+      </span>
+      <h1 class="info-card__header">
+        <slot name="header"></slot>
+      </h1>
+      <p class="info-card__content">
+        <slot name="content"></slot>
+      </p>
+    </div>
+  </template>
 
-    <h1 class="heading">Visualizations</h1>
-    <p>Visualization Title:</p>
+  <info-card>
+    <span slot="icon">i</span>
+    <span slot="header">Hey</span>
+    <span slot="content">Some New stuff</span>
+  </info-card>
+
+  <h1 class="heading">Visualizations</h1>
+  <p>Visualization Title:</p>
   <!--  <textarea name="" id="" cols="111" rows="3"></textarea> -->
   <input size="60" type="text">
 

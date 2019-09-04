@@ -1,0 +1,34 @@
+.info-card{
+        background: rgb(9, 201, 153);
+        padding: 1em;
+        border-radius: 10px;
+        width: 250px;
+        clip-path: circle(10% at 90% 20%);
+        transition: all .5s ease-in-out;
+        cursor: pointer;
+}
+.info-card:hover {
+        clip-path: circle(75%);
+        background: #00B6FF;
+}
+
+.info-card__header {
+        color: white;
+        margin: 0;
+}
+
+.info-card__content {
+        color: white;
+        font-size: .8rem;
+}
+.info-card__icon {
+        float: right;
+        color: white;
+        font-weight: bold;
+        transition: color .5s;
+        position: relative;
+        margin-right: 4%;
+}
+.info-card:hover .info-card__icon{
+        color: rgba(255,255,255,0)
+}
