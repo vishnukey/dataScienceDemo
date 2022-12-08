@@ -19,6 +19,6 @@
   "homepage": "https://github.com/vishnukey/dataScienceDemo#readme",
   "dependencies": {
     "body-parser": "^1.18.3",
-    "express": "^4.16.3"
+    "express": "^4.17.3"
   }
 }
